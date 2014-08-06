@@ -12,9 +12,15 @@
 #include <iostream>
 #include "cocos2d.h"
 
-class CoverLayer : public Layer
+class CoverLayer : public cocos2d::Layer
 {
-    
+public:
+    CREATE_FUNC(CoverLayer);
+    virtual bool init();
+    static cocos2d::Scene* createScene();
+private:
+    void transitionScene();
+    void menuStartCallback(cocos2d::Ref* pRef);
 
 };
 

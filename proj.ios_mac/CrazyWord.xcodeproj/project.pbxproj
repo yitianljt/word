@@ -63,6 +63,8 @@
 		50EF62A217ECD613001EB2F8 /* Icon-29.png in Resources */ = {isa = PBXBuildFile; fileRef = 50EF62A017ECD613001EB2F8 /* Icon-29.png */; };
 		50EF62A317ECD613001EB2F8 /* Icon-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 50EF62A117ECD613001EB2F8 /* Icon-50.png */; };
 		A9D33BA9199223180036D03E /* CoverLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9D33BA7199223180036D03E /* CoverLayer.cpp */; };
+		A9D33BB9199235D40036D03E /* FileTool.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9D33BB7199235D40036D03E /* FileTool.cpp */; };
+		A9D33BBF19924F9E0036D03E /* ComUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9D33BBD19924F9E0036D03E /* ComUtil.cpp */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
 		BF1712471292920000B8313A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB412928DE900B8313A /* libz.dylib */; };
 		BF1C47F01293687400B63C5D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF1C47EA1293683800B63C5D /* QuartzCore.framework */; };
@@ -263,6 +265,10 @@
 		50EF62A117ECD613001EB2F8 /* Icon-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-50.png"; sourceTree = "<group>"; };
 		A9D33BA7199223180036D03E /* CoverLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CoverLayer.cpp; path = ../Classes/CoverLayer.cpp; sourceTree = "<group>"; };
 		A9D33BA8199223180036D03E /* CoverLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoverLayer.h; path = ../Classes/CoverLayer.h; sourceTree = "<group>"; };
+		A9D33BB7199235D40036D03E /* FileTool.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FileTool.cpp; sourceTree = "<group>"; };
+		A9D33BB8199235D40036D03E /* FileTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileTool.h; sourceTree = "<group>"; };
+		A9D33BBD19924F9E0036D03E /* ComUtil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ComUtil.cpp; sourceTree = "<group>"; };
+		A9D33BBE19924F9E0036D03E /* ComUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComUtil.h; sourceTree = "<group>"; };
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BF170DB412928DE900B8313A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		BF1C47EA1293683800B63C5D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -339,6 +345,7 @@
 		15AA9C4015B7EC450033D6C2 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				A9D33BB4199235B70036D03E /* Util */,
 				1AFAF8B316D35DE700DB1158 /* AppDelegate.cpp */,
 				1AFAF8B416D35DE700DB1158 /* AppDelegate.h */,
 				1AFAF8B516D35DE700DB1158 /* HelloWorldScene.cpp */,
@@ -466,6 +473,18 @@
 			);
 			name = Resources;
 			path = ../Resources;
+			sourceTree = "<group>";
+		};
+		A9D33BB4199235B70036D03E /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				A9D33BB7199235D40036D03E /* FileTool.cpp */,
+				A9D33BB8199235D40036D03E /* FileTool.h */,
+				A9D33BBD19924F9E0036D03E /* ComUtil.cpp */,
+				A9D33BBE19924F9E0036D03E /* ComUtil.h */,
+			);
+			name = Util;
+			path = ../Classes/Util;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -673,6 +692,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
+				A9D33BBF19924F9E0036D03E /* ComUtil.cpp in Sources */,
+				A9D33BB9199235D40036D03E /* FileTool.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				1AFAF8B716D35DE700DB1158 /* AppDelegate.cpp in Sources */,
 				A9D33BA9199223180036D03E /* CoverLayer.cpp in Sources */,
@@ -753,6 +774,7 @@
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COMPRESS_PNG_FILES = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -784,6 +806,7 @@
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COMPRESS_PNG_FILES = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = ios/Prefix.pch;
