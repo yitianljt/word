@@ -8,6 +8,7 @@
 
 #include "MainLayer.h"
 #include "ComUtil.h"
+#include "LevelLayer.h"
 USING_NS_CC;
 
 
@@ -54,6 +55,9 @@ Scene* MainLayer::CreateScene()
 void MainLayer::startGame()
 {
     schedule(schedule_selector(MainLayer::updateCount), 1.0f);
+    //addlayer
+    LevelLayer* layerLevel = LevelLayer::create(_levelNum);
+    this->addChild(layerLevel);
 }
 
 void MainLayer::updateCount(float ft)
