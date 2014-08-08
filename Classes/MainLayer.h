@@ -11,8 +11,12 @@
 
 #include <iostream>
 #include "cocos2d.h"
+#include "LevelLayer.h"
+#include "ResultLayer.h"
 
-class MainLayer : public cocos2d::Layer
+class MainLayer : public cocos2d::Layer,
+                  public LevelLayerDelegate,
+                  public ResultLayerDelegate
 {
 public:
     MainLayer();
@@ -20,13 +24,16 @@ public:
     CREATE_FUNC(MainLayer);
     virtual bool init();
     static cocos2d::Scene* CreateScene();
+    void levelNumChange(unsigned iLevel);
+    void restartGame();
+    void gameOver();
+
 private:
-    CC_SYNTHESIZE(unsigned int , _levelNum, LevelNum);
     void startGame();
-    void updateCount(float ft);
-    cocos2d::LabelTTF* _ttfCountDown;
-    cocos2d::LabelTTF* _ttfLevel;
-    int _countDown;
+    CC_SYNTHESIZE(unsigned int , _levelNum, LevelNum);
+    LevelLayer* _layerLevel;
+    ResultLayer* _resultLayer;
+    
     
 };
 

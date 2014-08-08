@@ -71,6 +71,9 @@
 		A9D33BF4199359780036D03E /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = A9D33BF3199359780036D03E /* fonts */; };
 		A9D33BF6199359B50036D03E /* image in Resources */ = {isa = PBXBuildFile; fileRef = A9D33BF5199359B50036D03E /* image */; };
 		A9D33EC51993ACA10036D03E /* data in Resources */ = {isa = PBXBuildFile; fileRef = A9D33EC41993ACA10036D03E /* data */; };
+		A9D33EF319948A820036D03E /* ResultLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9D33EF119948A820036D03E /* ResultLayer.cpp */; };
+		A9D33EF619948AAD0036D03E /* PlayRound.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9D33EF419948AAD0036D03E /* PlayRound.cpp */; };
+		A9D33EFA19948C510036D03E /* Common.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9D33EF819948C510036D03E /* Common.cpp */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
 		BF1712471292920000B8313A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB412928DE900B8313A /* libz.dylib */; };
 		BF1C47F01293687400B63C5D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF1C47EA1293683800B63C5D /* QuartzCore.framework */; };
@@ -284,6 +287,12 @@
 		A9D33BF3199359780036D03E /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fonts; sourceTree = "<group>"; };
 		A9D33BF5199359B50036D03E /* image */ = {isa = PBXFileReference; lastKnownFileType = folder; path = image; sourceTree = "<group>"; };
 		A9D33EC41993ACA10036D03E /* data */ = {isa = PBXFileReference; lastKnownFileType = folder; path = data; sourceTree = "<group>"; };
+		A9D33EF119948A820036D03E /* ResultLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ResultLayer.cpp; path = ../Classes/ResultLayer.cpp; sourceTree = "<group>"; };
+		A9D33EF219948A820036D03E /* ResultLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ResultLayer.h; path = ../Classes/ResultLayer.h; sourceTree = "<group>"; };
+		A9D33EF419948AAD0036D03E /* PlayRound.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PlayRound.cpp; sourceTree = "<group>"; };
+		A9D33EF519948AAD0036D03E /* PlayRound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayRound.h; sourceTree = "<group>"; };
+		A9D33EF819948C510036D03E /* Common.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Common.cpp; sourceTree = "<group>"; };
+		A9D33EF919948C510036D03E /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BF170DB412928DE900B8313A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		BF1C47EA1293683800B63C5D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -360,17 +369,21 @@
 		15AA9C4015B7EC450033D6C2 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				A9D33EF719948C240036D03E /* common */,
+				A9D33EEE19948A780036D03E /* model */,
 				A9D33BB4199235B70036D03E /* Util */,
 				1AFAF8B316D35DE700DB1158 /* AppDelegate.cpp */,
 				1AFAF8B416D35DE700DB1158 /* AppDelegate.h */,
-				1AFAF8B516D35DE700DB1158 /* HelloWorldScene.cpp */,
-				1AFAF8B616D35DE700DB1158 /* HelloWorldScene.h */,
 				A9D33BA7199223180036D03E /* CoverLayer.cpp */,
 				A9D33BA8199223180036D03E /* CoverLayer.h */,
-				A9D33BC3199259DF0036D03E /* MainLayer.cpp */,
-				A9D33BC4199259DF0036D03E /* MainLayer.h */,
+				1AFAF8B516D35DE700DB1158 /* HelloWorldScene.cpp */,
+				1AFAF8B616D35DE700DB1158 /* HelloWorldScene.h */,
 				A9D33BCF1993241B0036D03E /* LevelLayer.cpp */,
 				A9D33BD01993241B0036D03E /* LevelLayer.h */,
+				A9D33EF119948A820036D03E /* ResultLayer.cpp */,
+				A9D33EF219948A820036D03E /* ResultLayer.h */,
+				A9D33BC3199259DF0036D03E /* MainLayer.cpp */,
+				A9D33BC4199259DF0036D03E /* MainLayer.h */,
 				A9D33BD3199330500036D03E /* WordBlock.cpp */,
 				A9D33BD4199330500036D03E /* WordBlock.h */,
 			);
@@ -517,6 +530,26 @@
 			children = (
 			);
 			path = libs;
+			sourceTree = "<group>";
+		};
+		A9D33EEE19948A780036D03E /* model */ = {
+			isa = PBXGroup;
+			children = (
+				A9D33EF419948AAD0036D03E /* PlayRound.cpp */,
+				A9D33EF519948AAD0036D03E /* PlayRound.h */,
+			);
+			name = model;
+			path = ../Classes/model;
+			sourceTree = "<group>";
+		};
+		A9D33EF719948C240036D03E /* common */ = {
+			isa = PBXGroup;
+			children = (
+				A9D33EF819948C510036D03E /* Common.cpp */,
+				A9D33EF919948C510036D03E /* Common.h */,
+			);
+			name = common;
+			path = ../Classes/common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -726,6 +759,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9D33EF319948A820036D03E /* ResultLayer.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				A9D33BC5199259DF0036D03E /* MainLayer.cpp in Sources */,
 				A9D33BD11993241B0036D03E /* LevelLayer.cpp in Sources */,
@@ -734,8 +768,10 @@
 				A9D33BB9199235D40036D03E /* FileTool.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				1AFAF8B716D35DE700DB1158 /* AppDelegate.cpp in Sources */,
+				A9D33EF619948AAD0036D03E /* PlayRound.cpp in Sources */,
 				A9D33BA9199223180036D03E /* CoverLayer.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
+				A9D33EFA19948C510036D03E /* Common.cpp in Sources */,
 				1AFAF8B816D35DE700DB1158 /* HelloWorldScene.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

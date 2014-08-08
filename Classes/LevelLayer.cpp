@@ -9,6 +9,7 @@
 #include "LevelLayer.h"
 #include "ComUtil.h"
 #include "cocostudio/CocoStudio.h"
+#include "PlayRound.h"
 #include "FileTool.h"
 #include <ctime>
 USING_NS_CC;
@@ -18,6 +19,7 @@ using namespace std;
 LevelLayer::LevelLayer(unsigned int iLevel)
 {
     setLevelNum(iLevel);
+    _countDown = 5;
     _vecBlocks = nullptr;
     _vecEasyQuestion = nullptr;
     _vecMedQuestion = nullptr;
@@ -49,6 +51,16 @@ bool LevelLayer::init()
         return false;
     }
     
+    __String* strLevel = __String::createWithFormat("第%d层/99层",getLevelNum());
+    _ttfLevel = LabelTTF::create(strLevel->getCString(), "黑体", 30);
+    _ttfLevel->setPosition(Point(COMWinSize().width/2,COMWinSize().height*0.9));
+    this->addChild(_ttfLevel);
+    
+    __String* strCount = __String::createWithFormat("%d秒",_countDown);
+    _ttfCountDown = LabelTTF::create(strCount->getCString(), "黑体", 40);
+    _ttfCountDown->setPosition(_ttfLevel->getPosition()+Point(0,-_ttfLevel->getContentSize().height/2-40));
+    this->addChild(_ttfCountDown);
+    
     auto listener = EventListenerTouchOneByOne::create();
     listener->onTouchBegan = [this](Touch* t, Event* e)
     {
@@ -69,11 +81,22 @@ bool LevelLayer::init()
     };  
     
     Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener, this);
-    
-    
+    schedule(schedule_selector(LevelLayer::updateCount), 1.0f);
     return true;
 }
 
+void LevelLayer::updateCount(float ft)
+{
+    _countDown--;
+    PlayRound::shared()->setCount(_countDown);
+    if (_countDown<=0) {
+        unschedule(schedule_selector(LevelLayer::updateCount));
+        gameOver();
+        return;
+    }
+    __String* strCount = __String::createWithFormat("%d秒",_countDown);
+    _ttfCountDown->setString(strCount->getCString());
+}
 
 void LevelLayer::onEnter()
 {
@@ -108,6 +131,11 @@ void LevelLayer::createBlocks(int rows)
 
 void LevelLayer::nextLevel()
 {
+    _levelNum++;
+    PlayRound::shared()->setLevel(_levelNum);
+    __String* strLevel = __String::createWithFormat("第%d层/99层",getLevelNum());
+    _ttfLevel->setString(strLevel->getCString());
+
     for(auto it = _vecBlocks->begin(); it != _vecBlocks->end(); it++)
     {
         WordBlock* block = *it;
@@ -115,7 +143,6 @@ void LevelLayer::nextLevel()
     }
     _vecBlocks->clear();
     delete _vecBlocks;
-    _levelNum++;
     if (_levelNum<=3) {
         createBlocks(2);
     }
@@ -130,6 +157,14 @@ void LevelLayer::nextLevel()
     else
     {
         createBlocks(8);
+    }
+}
+
+void LevelLayer::gameOver()
+{
+    if (this->getDelegate())
+    {
+        this->getDelegate()->gameOver();
     }
 }
 
@@ -195,9 +230,7 @@ void LevelLayer::parseJson()
             Question queTmp = _vecMedQuestion->at(iRand);
             _vecMedQuestion->at(iRand) = _vecMedQuestion->at((iRand+1)%_vecMedQuestion->size());
             _vecMedQuestion->at((iRand+1)%_vecMedQuestion->size()) = queTmp;
-            
         }
-        
     }
     _vecQuestion->assign(_vecEasyQuestion->begin(), _vecEasyQuestion->begin()+3);
     for (int i=0; i<_vecMedQuestion->size(); i++) {

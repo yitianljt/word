@@ -15,5 +15,4 @@
 cocos2d::Size COMWinSize();
 
 
-
 #endif /* defined(__CrazyWord__ComUtil__) */

@@ -19,6 +19,14 @@ struct Question{
     std::string strDiff;
 };
 
+class LevelLayerDelegate{
+public:
+    virtual void levelNumChange(unsigned iLevel)=0;
+    virtual void gameOver()=0;
+
+};
+
+
 class LevelLayer : public cocos2d::Layer
 {
 public:
@@ -27,10 +35,16 @@ public:
     virtual bool init();
     virtual void onEnter();
     CC_SYNTHESIZE(unsigned int , _levelNum, LevelNum);
+    CC_SYNTHESIZE(LevelLayerDelegate*, _delegate, Delegate);
 private:
     void createBlocks(int rows);
+    void updateCount(float ft);
     void nextLevel();
+    void gameOver();
     void parseJson();
+    cocos2d::LabelTTF* _ttfCountDown;
+    cocos2d::LabelTTF* _ttfLevel;
+    int _countDown;
     CC_SYNTHESIZE(std::string, _normalWord, NormalWord);
     CC_SYNTHESIZE(std::string, _wrongWord, WrongWord);
     std::vector<WordBlock*>* _vecBlocks;
