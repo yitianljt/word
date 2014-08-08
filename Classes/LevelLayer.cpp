@@ -240,5 +240,4 @@ void LevelLayer::parseJson()
     for (int i=0; i<_vecMedQuestion->size(); i++) {
         _vecQuestion->push_back(_vecMedQuestion->at(i));
     }
-    
 }

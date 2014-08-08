@@ -75,6 +75,16 @@
 		A9D33EF619948AAD0036D03E /* PlayRound.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9D33EF419948AAD0036D03E /* PlayRound.cpp */; };
 		A9D33EFA19948C510036D03E /* Common.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9D33EF819948C510036D03E /* Common.cpp */; };
 		A9D33F061994A8F50036D03E /* Sound in Resources */ = {isa = PBXBuildFile; fileRef = A9D33F051994A8F50036D03E /* Sound */; };
+		A9D33F171994B72B0036D03E /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9D33F161994B72B0036D03E /* Security.framework */; };
+		A9D33F191994B7380036D03E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9D33F181994B7380036D03E /* SystemConfiguration.framework */; };
+		A9D33F1B1994B7450036D03E /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9D33F1A1994B7450036D03E /* CFNetwork.framework */; };
+		A9D33F1D1994B74E0036D03E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9D33F1C1994B74E0036D03E /* QuartzCore.framework */; };
+		A9D33F1F1994B7680036D03E /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A9D33F1E1994B7680036D03E /* libsqlite3.dylib */; };
+		A9D33F211994B7710036D03E /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9D33F201994B7710036D03E /* StoreKit.framework */; };
+		A9D33F221994BB310036D03E /* libOpenIDFA.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A9D33F121994B5440036D03E /* libOpenIDFA.a */; };
+		A9D33F231994BB310036D03E /* libYouMi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A9D33F131994B5440036D03E /* libYouMi.a */; };
+		A9D33F2C1994C4200036D03E /* ShowYouAd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9D33F2A1994C4200036D03E /* ShowYouAd.cpp */; };
+		A9D33F2E1994C45D0036D03E /* ShowYouAd.mm in Sources */ = {isa = PBXBuildFile; fileRef = A9D33F2D1994C45D0036D03E /* ShowYouAd.mm */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
 		BF1712471292920000B8313A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB412928DE900B8313A /* libz.dylib */; };
 		BF1C47F01293687400B63C5D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF1C47EA1293683800B63C5D /* QuartzCore.framework */; };
@@ -295,6 +305,26 @@
 		A9D33EF819948C510036D03E /* Common.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Common.cpp; sourceTree = "<group>"; };
 		A9D33EF919948C510036D03E /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
 		A9D33F051994A8F50036D03E /* Sound */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Sound; sourceTree = "<group>"; };
+		A9D33F091994B5440036D03E /* YouMiConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YouMiConfig.h; sourceTree = "<group>"; };
+		A9D33F0A1994B5440036D03E /* YouMiDelegateProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YouMiDelegateProtocol.h; sourceTree = "<group>"; };
+		A9D33F0B1994B5440036D03E /* YouMiPointsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YouMiPointsManager.h; sourceTree = "<group>"; };
+		A9D33F0C1994B5440036D03E /* YouMiSpots.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YouMiSpots.h; sourceTree = "<group>"; };
+		A9D33F0D1994B5440036D03E /* YouMiView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YouMiView.h; sourceTree = "<group>"; };
+		A9D33F0E1994B5440036D03E /* YouMiWall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YouMiWall.h; sourceTree = "<group>"; };
+		A9D33F0F1994B5440036D03E /* YouMiWallAppModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YouMiWallAppModel.h; sourceTree = "<group>"; };
+		A9D33F101994B5440036D03E /* YouMiWallSpot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YouMiWallSpot.h; sourceTree = "<group>"; };
+		A9D33F111994B5440036D03E /* YouMiWallSpotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YouMiWallSpotView.h; sourceTree = "<group>"; };
+		A9D33F121994B5440036D03E /* libOpenIDFA.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libOpenIDFA.a; sourceTree = "<group>"; };
+		A9D33F131994B5440036D03E /* libYouMi.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libYouMi.a; sourceTree = "<group>"; };
+		A9D33F161994B72B0036D03E /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
+		A9D33F181994B7380036D03E /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
+		A9D33F1A1994B7450036D03E /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/CFNetwork.framework; sourceTree = DEVELOPER_DIR; };
+		A9D33F1C1994B74E0036D03E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
+		A9D33F1E1994B7680036D03E /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/usr/lib/libsqlite3.dylib; sourceTree = DEVELOPER_DIR; };
+		A9D33F201994B7710036D03E /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/StoreKit.framework; sourceTree = DEVELOPER_DIR; };
+		A9D33F2A1994C4200036D03E /* ShowYouAd.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ShowYouAd.cpp; path = ../Classes/ShowYouAd.cpp; sourceTree = "<group>"; };
+		A9D33F2B1994C4200036D03E /* ShowYouAd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShowYouAd.h; path = ../Classes/ShowYouAd.h; sourceTree = "<group>"; };
+		A9D33F2D1994C45D0036D03E /* ShowYouAd.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = ShowYouAd.mm; path = ios/ShowYouAd.mm; sourceTree = SOURCE_ROOT; };
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BF170DB412928DE900B8313A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		BF1C47EA1293683800B63C5D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -309,6 +339,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9D33F221994BB310036D03E /* libOpenIDFA.a in Frameworks */,
+				A9D33F231994BB310036D03E /* libYouMi.a in Frameworks */,
+				A9D33F211994B7710036D03E /* StoreKit.framework in Frameworks */,
+				A9D33F1F1994B7680036D03E /* libsqlite3.dylib in Frameworks */,
+				A9D33F1D1994B74E0036D03E /* QuartzCore.framework in Frameworks */,
+				A9D33F1B1994B7450036D03E /* CFNetwork.framework in Frameworks */,
+				A9D33F191994B7380036D03E /* SystemConfiguration.framework in Frameworks */,
+				A9D33F171994B72B0036D03E /* Security.framework in Frameworks */,
 				1AC6FB2E180E99EB004C840B /* libbox2d iOS.a in Frameworks */,
 				1AC6FB2F180E99EB004C840B /* libchipmunk iOS.a in Frameworks */,
 				1AC6FB30180E99EB004C840B /* libcocos2dx iOS.a in Frameworks */,
@@ -356,6 +394,7 @@
 		080E96DDFE201D6D7F000001 /* ios */ = {
 			isa = PBXGroup;
 			children = (
+				A9D33F2D1994C45D0036D03E /* ShowYouAd.mm */,
 				5087E77117EB970100C73F5D /* Icons */,
 				503AE0FA17EB989F00D1A890 /* AppController.h */,
 				503AE0FB17EB989F00D1A890 /* AppController.mm */,
@@ -371,6 +410,8 @@
 		15AA9C4015B7EC450033D6C2 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				A9D33F2A1994C4200036D03E /* ShowYouAd.cpp */,
+				A9D33F2B1994C4200036D03E /* ShowYouAd.h */,
 				A9D33EF719948C240036D03E /* common */,
 				A9D33EEE19948A780036D03E /* model */,
 				A9D33BB4199235B70036D03E /* Util */,
@@ -437,6 +478,12 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A9D33F201994B7710036D03E /* StoreKit.framework */,
+				A9D33F1E1994B7680036D03E /* libsqlite3.dylib */,
+				A9D33F1C1994B74E0036D03E /* QuartzCore.framework */,
+				A9D33F1A1994B7450036D03E /* CFNetwork.framework */,
+				A9D33F181994B7380036D03E /* SystemConfiguration.framework */,
+				A9D33F161994B72B0036D03E /* Security.framework */,
 				D6B0611A1803AB670077942B /* CoreMotion.framework */,
 				503AE11A17EB9C5A00D1A890 /* IOKit.framework */,
 				503AE11117EB99EE00D1A890 /* libcurl.dylib */,
@@ -531,6 +578,7 @@
 		A9D33BFD199383A50036D03E /* libs */ = {
 			isa = PBXGroup;
 			children = (
+				A9D33F071994B5440036D03E /* YouMi */,
 			);
 			path = libs;
 			sourceTree = "<group>";
@@ -553,6 +601,33 @@
 			);
 			name = common;
 			path = ../Classes/common;
+			sourceTree = "<group>";
+		};
+		A9D33F071994B5440036D03E /* YouMi */ = {
+			isa = PBXGroup;
+			children = (
+				A9D33F081994B5440036D03E /* include */,
+				A9D33F121994B5440036D03E /* libOpenIDFA.a */,
+				A9D33F131994B5440036D03E /* libYouMi.a */,
+			);
+			name = YouMi;
+			path = ../../libs/YouMi;
+			sourceTree = "<group>";
+		};
+		A9D33F081994B5440036D03E /* include */ = {
+			isa = PBXGroup;
+			children = (
+				A9D33F091994B5440036D03E /* YouMiConfig.h */,
+				A9D33F0A1994B5440036D03E /* YouMiDelegateProtocol.h */,
+				A9D33F0B1994B5440036D03E /* YouMiPointsManager.h */,
+				A9D33F0C1994B5440036D03E /* YouMiSpots.h */,
+				A9D33F0D1994B5440036D03E /* YouMiView.h */,
+				A9D33F0E1994B5440036D03E /* YouMiWall.h */,
+				A9D33F0F1994B5440036D03E /* YouMiWallAppModel.h */,
+				A9D33F101994B5440036D03E /* YouMiWallSpot.h */,
+				A9D33F111994B5440036D03E /* YouMiWallSpotView.h */,
+			);
+			path = include;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -769,6 +844,8 @@
 				A9D33BD11993241B0036D03E /* LevelLayer.cpp in Sources */,
 				A9D33BBF19924F9E0036D03E /* ComUtil.cpp in Sources */,
 				A9D33BD5199330500036D03E /* WordBlock.cpp in Sources */,
+				A9D33F2C1994C4200036D03E /* ShowYouAd.cpp in Sources */,
+				A9D33F2E1994C45D0036D03E /* ShowYouAd.mm in Sources */,
 				A9D33BB9199235D40036D03E /* FileTool.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				1AFAF8B716D35DE700DB1158 /* AppDelegate.cpp in Sources */,
@@ -850,6 +927,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
+				ARCHS = (
+					armv7,
+					armv7s,
+				);
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COMPRESS_PNG_FILES = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -869,14 +950,17 @@
 					"$(SRCROOT)/../cocos2d/cocos/platform/ios",
 					"$(SRCROOT)/../cocos2d/cocos/platform/ios/Simulation",
 					"$(SRCROOT)/../libs/jsoncpp-src-0.5.0/include",
+					"$(SRCROOT)/../libs/YouMi/include",
 				);
 				INFOPLIST_FILE = ios/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				LIBRARY_SEARCH_PATHS = "";
+				LIBRARY_SEARCH_PATHS = "/Users/jintao/dev_proj/cocos2d-x-3.2/NewProject/CrazyWord/libs/YouMi";
+				ONLY_ACTIVE_ARCH = NO;
 				PROVISIONING_PROFILE = "4BBAAD62-CB12-494A-A3BD-D61BC5330167";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
+				VALID_ARCHS = "armv7 armv7s";
 			};
 			name = Debug;
 		};
@@ -884,6 +968,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
+				ARCHS = (
+					armv7,
+					armv7s,
+				);
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COMPRESS_PNG_FILES = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -901,14 +989,17 @@
 					"$(SRCROOT)/../cocos2d/cocos/platform/ios",
 					"$(SRCROOT)/../cocos2d/cocos/platform/ios/Simulation",
 					"$(SRCROOT)/../libs/jsoncpp-src-0.5.0/include",
+					"$(SRCROOT)/../libs/YouMi/include",
 				);
 				INFOPLIST_FILE = ios/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				LIBRARY_SEARCH_PATHS = "";
+				LIBRARY_SEARCH_PATHS = "/Users/jintao/dev_proj/cocos2d-x-3.2/NewProject/CrazyWord/libs/YouMi";
+				ONLY_ACTIVE_ARCH = YES;
 				PROVISIONING_PROFILE = "4BBAAD62-CB12-494A-A3BD-D61BC5330167";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
+				VALID_ARCHS = "armv7 armv7s";
 			};
 			name = Release;
 		};

@@ -27,6 +27,7 @@
 #import "cocos2d.h"
 #import "AppDelegate.h"
 #import "RootViewController.h"
+#import "YouMiConfig.h"
 
 @implementation AppController
 
@@ -72,6 +73,12 @@ static AppDelegate s_sharedApplication;
     [window makeKeyAndVisible];
 
     [[UIApplication sharedApplication] setStatusBarHidden:true];
+    
+    //youmi
+    [YouMiConfig setUseInAppStore:YES];
+    [YouMiConfig launchWithAppID:@"57d809f1e6cf88d3" appSecret:@"e5494948fb748d6c"];
+    
+
 
     // IMPORTANT: Setting the GLView should be done after creating the RootViewController
     cocos2d::GLView *glview = cocos2d::GLView::createWithEAGLView(eaglView);

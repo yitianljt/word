@@ -9,6 +9,7 @@
 #include "CoverLayer.h"
 #include "ComUtil.h"
 #include "MainLayer.h"
+#include "ShowYouAd.h"
 USING_NS_CC;
 
 
@@ -26,6 +27,9 @@ bool CoverLayer::init()
     Menu* menu = Menu::create(label, nullptr);
     menu->setPosition(Point(COMWinSize().width/2,COMWinSize().height/2));
     this->addChild(menu);
+    
+    //ShowYouAd::shared()->showYouWallSpot();
+    ShowYouAd::shared()->showSpots();
     return true;
 }
 
