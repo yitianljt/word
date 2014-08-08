@@ -119,11 +119,11 @@ const char* PlayRound::getPrivityDescription(unsigned int aPrivity)
 		index_ = 5;
 	}else if (12 <= aPrivity && aPrivity < 14) {
 		index_ = 6;
-	}else if (15 <= aPrivity && aPrivity <= 20) {
+	}else if (15 <= aPrivity && aPrivity <= 100) {
 		index_ = 7;
 	}
 	const char* returnValue_ = "";
-    CCLOG("%d,size=%zd",index_,_privityDescriptions->count());
+    CCLOG("getPrivityDescription=%d,size=%zd",index_,_privityDescriptions->count());
 	__Array *sentences_ = (__Array*)_privityDescriptions->getObjectAtIndex(index_);
 	if (sentences_==NULL) return "";
 	int rndIndex_ = floorf(CCRANDOM_0_1()*sentences_->count());

@@ -12,6 +12,10 @@
 #include <iostream>
 #include "cocos2d.h"
 
+typedef enum {
+    kStartTag
+}kMenuTag;
+
 class CoverLayer : public cocos2d::Layer
 {
 public:
@@ -20,7 +24,7 @@ public:
     static cocos2d::Scene* createScene();
 private:
     void transitionScene();
-    void menuStartCallback(cocos2d::Ref* pRef);
+    void onClick(cocos2d::Ref* pRef);
 
 };
 

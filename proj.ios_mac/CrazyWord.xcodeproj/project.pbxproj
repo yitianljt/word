@@ -74,6 +74,7 @@
 		A9D33EF319948A820036D03E /* ResultLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9D33EF119948A820036D03E /* ResultLayer.cpp */; };
 		A9D33EF619948AAD0036D03E /* PlayRound.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9D33EF419948AAD0036D03E /* PlayRound.cpp */; };
 		A9D33EFA19948C510036D03E /* Common.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9D33EF819948C510036D03E /* Common.cpp */; };
+		A9D33F061994A8F50036D03E /* Sound in Resources */ = {isa = PBXBuildFile; fileRef = A9D33F051994A8F50036D03E /* Sound */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
 		BF1712471292920000B8313A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB412928DE900B8313A /* libz.dylib */; };
 		BF1C47F01293687400B63C5D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF1C47EA1293683800B63C5D /* QuartzCore.framework */; };
@@ -293,6 +294,7 @@
 		A9D33EF519948AAD0036D03E /* PlayRound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayRound.h; sourceTree = "<group>"; };
 		A9D33EF819948C510036D03E /* Common.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Common.cpp; sourceTree = "<group>"; };
 		A9D33EF919948C510036D03E /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
+		A9D33F051994A8F50036D03E /* Sound */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Sound; sourceTree = "<group>"; };
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BF170DB412928DE900B8313A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		BF1C47EA1293683800B63C5D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -502,6 +504,7 @@
 		78C7DDAA14EBA5050085D0C2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A9D33F051994A8F50036D03E /* Sound */,
 				A9D33EC41993ACA10036D03E /* data */,
 				A9D33BF5199359B50036D03E /* image */,
 				A9D33BF3199359780036D03E /* fonts */,
@@ -725,6 +728,7 @@
 				5087E77D17EB970100C73F5D /* Default-568h@2x.png in Resources */,
 				5087E78517EB970100C73F5D /* Icon-72.png in Resources */,
 				1AFAF8BD16D35E4900DB1158 /* CloseSelected.png in Resources */,
+				A9D33F061994A8F50036D03E /* Sound in Resources */,
 				50EF62A317ECD613001EB2F8 /* Icon-50.png in Resources */,
 				5087E78017EB970100C73F5D /* Icon-114.png in Resources */,
 				A9D33BF4199359780036D03E /* fonts in Resources */,
@@ -869,6 +873,7 @@
 				INFOPLIST_FILE = ios/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = "";
+				PROVISIONING_PROFILE = "4BBAAD62-CB12-494A-A3BD-D61BC5330167";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
@@ -900,6 +905,7 @@
 				INFOPLIST_FILE = ios/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = "";
+				PROVISIONING_PROFILE = "4BBAAD62-CB12-494A-A3BD-D61BC5330167";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";

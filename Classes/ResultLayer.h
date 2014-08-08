@@ -12,6 +12,10 @@
 #include <iostream>
 #include "cocos2d.h"
 
+typedef enum {
+    kResultRestartTag
+}kResultMenuTag;
+
 class ResultLayerDelegate{
 public:
     virtual void restartGame() = 0;
@@ -25,7 +29,7 @@ public:
     virtual bool init();
     CC_SYNTHESIZE(ResultLayerDelegate* , _delegate, Delegate);
 private:
-    void menuRestart(cocos2d::Ref* pSender);
+    void onClick(cocos2d::Ref* pSender);
 };
 
 #endif /* defined(__CrazyWord__ResultLayer__) */

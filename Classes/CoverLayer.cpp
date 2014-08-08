@@ -18,8 +18,11 @@ bool CoverLayer::init()
     if (!Layer::init()) {
         return false;
     }
+    LayerColor* layerColor = LayerColor::create(Color4B(30,170,200,255), COMWinSize().width, COMWinSize().height);
+    addChild(layerColor);
     
-    MenuItemLabel* label = MenuItemLabel::create(LabelTTF::create("开始游戏", "黑体", 50),CC_CALLBACK_1(CoverLayer::menuStartCallback, this) );
+    MenuItemLabel* label = MenuItemLabel::create(LabelTTF::create("开始游戏", "黑体", 50),CC_CALLBACK_1(CoverLayer::onClick, this) );
+    label->setTag(kStartTag);
     Menu* menu = Menu::create(label, nullptr);
     menu->setPosition(Point(COMWinSize().width/2,COMWinSize().height/2));
     this->addChild(menu);
@@ -39,7 +42,15 @@ void CoverLayer::transitionScene()
     Director::getInstance()->replaceScene(TransitionFade::create(0.5,MainLayer::CreateScene()));
 }
 
-void CoverLayer::menuStartCallback(Ref* pRef)
+void CoverLayer::onClick(Ref* pSender)
 {
-    transitionScene();
+    CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("Sound/Button.mp3");
+    Node* node = (Node*)pSender;
+    switch (node->getTag()) {
+        case kStartTag:
+            transitionScene();
+            break;
+        default:
+            break;
+    }
 }

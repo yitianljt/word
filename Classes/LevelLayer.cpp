@@ -72,8 +72,14 @@ bool LevelLayer::init()
             block = *it;
             if(block->getIsDiff() && block->getBoundingBox().containsPoint(t->getLocation()))
             {
+                CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("Sound/Correct.m4a");
                 nextLevel();
                 return true;
+            }
+            else if(!block->getIsDiff() && block->getBoundingBox().containsPoint(t->getLocation()))
+            {
+                CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("Sound/Pass.m4a");
+                return false;
             }
         }
         
@@ -208,11 +214,9 @@ void LevelLayer::parseJson()
             }
         }
         //random_shuffle(_vecEasyQuestion->begin(), _vecEasyQuestion->end());
-        
         for (int i=0; i<_vecEasyQuestion->size(); i++) {
             CCLOG("new [%d]=%s,",i,_vecEasyQuestion->at(i).strNormal.c_str());
         }
-        
         for (int i=0; i<_vecEasyQuestion->size(); i++) {
             int iTime = (unsigned)(time(NULL)+i);
             srand(iTime);

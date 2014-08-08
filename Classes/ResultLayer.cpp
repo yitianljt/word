@@ -25,8 +25,8 @@ bool ResultLayer::init()
         return false;
     }
     //des
-    //LabelTTF* labelDes = LabelTTF::create(PlayRound::shared()->getPrivityDescription(PlayRound::shared()->getLevel()), "黑体", 30);
-    LabelTTF* labelDes = LabelTTF::create(PlayRound::shared()->getPrivityDescription(0), "黑体", 30);
+    LabelTTF* labelDes = LabelTTF::create(PlayRound::shared()->getPrivityDescription(PlayRound::shared()->getLevel()), "黑体", 30);
+    //LabelTTF* labelDes = LabelTTF::create(PlayRound::shared()->getPrivityDescription(0), "黑体", 30);
     labelDes->setPosition(Point(COMWinSize().width/2,COMWinSize().height*0.8));
     addChild(labelDes);
     
@@ -35,7 +35,8 @@ bool ResultLayer::init()
     labelLevel->setPosition(Point(COMWinSize().width/2,COMWinSize().height*0.7));
     addChild(labelLevel);
 
-    MenuItemLabel* label = MenuItemLabel::create(LabelTTF::create("重新开始", "黑体", 50),CC_CALLBACK_1(ResultLayer::menuRestart, this) );
+    MenuItemLabel* label = MenuItemLabel::create(LabelTTF::create("重新开始", "黑体", 50),CC_CALLBACK_1(ResultLayer::onClick, this) );
+    label->setTag(kResultRestartTag);
     Menu* menu = Menu::create(label, nullptr);
     menu->setPosition(Point(COMWinSize().width/2,COMWinSize().height/2));
     this->addChild(menu);
@@ -44,10 +45,20 @@ bool ResultLayer::init()
 }
 
 
-void ResultLayer::menuRestart(cocos2d::Ref* pSender)
+void ResultLayer::onClick(cocos2d::Ref* pSender)
 {
-    if (getDelegate())
-    {
-        getDelegate()->restartGame();
+    CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("Sound/Button.mp3");
+    Node* node = (Node*)pSender;
+    switch (node->getTag()) {
+        case kResultRestartTag:
+            if (getDelegate())
+            {
+                getDelegate()->restartGame();
+            }
+            break;
+            
+        default:
+            break;
     }
+    
 }
