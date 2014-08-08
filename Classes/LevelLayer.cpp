@@ -8,6 +8,9 @@
 
 #include "LevelLayer.h"
 #include "ComUtil.h"
+#include "cocostudio/CocoStudio.h"
+#include "FileTool.h"
+#include <ctime>
 USING_NS_CC;
 using namespace std;
 
@@ -16,8 +19,12 @@ LevelLayer::LevelLayer(unsigned int iLevel)
 {
     setLevelNum(iLevel);
     _vecBlocks = nullptr;
-    setNormalWord("二");
-    setWrongWord("大");
+    _vecEasyQuestion = nullptr;
+    _vecMedQuestion = nullptr;
+    setNormalWord("");
+    setWrongWord("");
+    //初始化所有的题目
+    parseJson();
 }
 
 LevelLayer* LevelLayer::create(unsigned int iLevel)
@@ -42,6 +49,28 @@ bool LevelLayer::init()
         return false;
     }
     
+    auto listener = EventListenerTouchOneByOne::create();
+    listener->onTouchBegan = [this](Touch* t, Event* e)
+    {
+        
+        WordBlock* block;
+        CCLOG("size = %lu",_vecBlocks->size());
+        for(auto it = _vecBlocks->begin(); it != _vecBlocks->end(); it++)
+        {
+            block = *it;
+            if(block->getIsDiff() && block->getBoundingBox().containsPoint(t->getLocation()))
+            {
+                nextLevel();
+                return true;
+            }
+        }
+        
+        return false;
+    };  
+    
+    Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener, this);
+    
+    
     return true;
 }
 
@@ -58,23 +87,121 @@ void LevelLayer::onEnter()
 
 void LevelLayer::createBlocks(int rows)
 {
-    _vecBlocks = new vector<WordBlock>();
+    setNormalWord(_vecQuestion->at(getLevelNum()-1).strNormal);
+    setWrongWord(_vecQuestion->at(getLevelNum()-1).strDiff);
+
+    _vecBlocks = new vector<WordBlock*>();
     float cellWidth = (COMWinSize().width-40)/(rows*1.0);
-    CCLOG("cellWidth=%f",cellWidth);
     
     float startX = COMWinSize().width/2-(rows/2)*cellWidth;
-    float startY = COMWinSize().height/2-(rows/2-1)*cellWidth;
-    
-    CCLOG("startX=%f,startY=%f",startX,startY);
+    float startY = COMWinSize().height/2+(rows/2-1)*cellWidth;
+    srand((int)time(NULL));
+    int iRandNum =  rand()%(rows*rows);
 
-    
-    int iRandNum = rand()%(rows*rows);
-    
     for (int i=0;i<rows*rows; i++) {
         WordBlock* block = WordBlock::create(Size(cellWidth,cellWidth), i==iRandNum?getWrongWord():getNormalWord(),i==iRandNum);
         block->setPosition(Point(startX,startY)+Point((i/rows)*cellWidth,-(i%rows)*cellWidth));
         addChild(block);
+        _vecBlocks->push_back(block);
     }
+}
+
+void LevelLayer::nextLevel()
+{
+    for(auto it = _vecBlocks->begin(); it != _vecBlocks->end(); it++)
+    {
+        WordBlock* block = *it;
+        block->removeFromParent();
+    }
+    _vecBlocks->clear();
+    delete _vecBlocks;
+    _levelNum++;
+    if (_levelNum<=3) {
+        createBlocks(2);
+    }
+    else if(_levelNum<=6)
+    {
+        createBlocks(4);
+    }
+    else  if(_levelNum<=9)
+    {
+        createBlocks(6);
+    }
+    else
+    {
+        createBlocks(8);
+    }
+}
+
+void LevelLayer::parseJson()
+{
+    rapidjson::Document doc;
+    string strPath = FileUtils::getInstance()->fullPathForFilename("data/word.json");//getStringFromFile("test.json");
+    string strData = FileUtils::getInstance()->getStringFromFile(strPath);
     
+    if (strData.size()==0) {
+        CCLOG("not found file");
+        return;
+    }
+    _vecEasyQuestion = new vector<Question>();
+    _vecMedQuestion = new vector<Question>();
+    _vecQuestion = new vector<Question>();
+    
+    doc.Parse<0>(strData.c_str());
+    if (doc.HasParseError()) {
+        CCLOG("GetParseError = %s\n",doc.GetParseError());
+    }
+    else if(doc.IsObject())
+    {
+        rapidjson::Value &easyArray = doc["easy"];
+        rapidjson::Value &medArray = doc["med"];
+
+        if (easyArray.IsArray()) {
+            for (unsigned int i=0; i<easyArray.Size(); i++) {
+                Question que = Question();
+                que.strNormal = doc["easy"][i]["nor"].GetString();
+                que.strDiff = doc["easy"][i]["diff"].GetString();
+                _vecEasyQuestion->push_back(que);
+            }
+        }
+        if (medArray.IsArray()) {
+            for (unsigned int i=0; i<medArray.Size(); i++) {
+                Question que = Question();
+                que.strNormal = doc["med"][i]["nor"].GetString();
+                que.strDiff = doc["med"][i]["diff"].GetString();
+                _vecMedQuestion->push_back(que);
+            }
+        }
+        //random_shuffle(_vecEasyQuestion->begin(), _vecEasyQuestion->end());
+        
+        for (int i=0; i<_vecEasyQuestion->size(); i++) {
+            CCLOG("new [%d]=%s,",i,_vecEasyQuestion->at(i).strNormal.c_str());
+        }
+        
+        for (int i=0; i<_vecEasyQuestion->size(); i++) {
+            int iTime = (unsigned)(time(NULL)+i);
+            srand(iTime);
+            int iRand = rand()%_vecEasyQuestion->size();
+            Question queTmp = _vecEasyQuestion->at(iRand);
+            _vecEasyQuestion->at(iRand) = _vecEasyQuestion->at((iRand+1)%_vecEasyQuestion->size());
+            _vecEasyQuestion->at((iRand+1)%_vecEasyQuestion->size()) = queTmp;
+
+        }
+        //random_shuffle(_vecMedQuestion->begin(), _vecMedQuestion->end());
+        for (int i=0; i<_vecMedQuestion->size(); i++) {
+            int iTime = (unsigned)(time(NULL)+i);
+            srand(iTime);
+            int iRand = rand()%_vecMedQuestion->size();
+            Question queTmp = _vecMedQuestion->at(iRand);
+            _vecMedQuestion->at(iRand) = _vecMedQuestion->at((iRand+1)%_vecMedQuestion->size());
+            _vecMedQuestion->at((iRand+1)%_vecMedQuestion->size()) = queTmp;
+            
+        }
+        
+    }
+    _vecQuestion->assign(_vecEasyQuestion->begin(), _vecEasyQuestion->begin()+3);
+    for (int i=0; i<_vecMedQuestion->size(); i++) {
+        _vecQuestion->push_back(_vecMedQuestion->at(i));
+    }
     
 }

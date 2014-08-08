@@ -17,6 +17,7 @@ class WordBlock : public cocos2d::Sprite
 public:
     static WordBlock* create(cocos2d::Size,std::string strLabel,bool isDiffWord );
     virtual bool init(cocos2d::Size,std::string strLabel,bool isDiffWord);
+    bool getIsDiff(){return _isDiffWord;};
 private:
     bool _isDiffWord;
     

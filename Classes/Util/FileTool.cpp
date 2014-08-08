@@ -35,7 +35,7 @@
 /****************************/
 
 using namespace std;
-namespace utils {
+namespace COMutils {
     
 struct FTW {
     int base;
@@ -103,6 +103,20 @@ bool deleteDirectory(const char *path)
     }
 }
     
+// 检查文件是否存在
+bool fileExistsAtPath(const char *path)
+{
+    if( access(path, F_OK ) != -1 )
+    {
+        return true;
+    }
+    else
+    {
+        fprintf(stderr, "access file(%s) failed.\n", path);
+        return false;
+    }
+}
+
     
     
 // 目录遍历

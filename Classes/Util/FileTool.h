@@ -14,7 +14,7 @@
 #include <vector>
 
 
-namespace utils {
+namespace COMutils {
     // 当前工作目录
     std::string getCurrentWorkingDirectory();
     
