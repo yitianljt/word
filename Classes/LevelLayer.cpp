@@ -11,6 +11,7 @@
 #include "cocostudio/CocoStudio.h"
 #include "PlayRound.h"
 #include "FileTool.h"
+#include "ShowYouAd.h"
 #include <ctime>
 USING_NS_CC;
 using namespace std;
@@ -20,6 +21,7 @@ LevelLayer::LevelLayer(unsigned int iLevel)
 {
     setLevelNum(iLevel);
     _countDown = 25;
+    _wrongCount = 0;
     _vecBlocks = nullptr;
     _vecEasyQuestion = nullptr;
     _vecMedQuestion = nullptr;
@@ -73,11 +75,17 @@ bool LevelLayer::init()
             if(block->getIsDiff() && block->getBoundingBox().containsPoint(t->getLocation()))
             {
                 CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("Sound/Correct.MP3");
+                _wrongCount = 0;
                 nextLevel();
                 return true;
             }
             else if(!block->getIsDiff() && block->getBoundingBox().containsPoint(t->getLocation()))
             {
+                _wrongCount++;
+                if (_wrongCount>=3) {
+                    ShowYouAd::shared()->showYouWallSpot();
+                    _wrongCount = 0;
+                }
                 CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("Sound/Pass.m4a");
                 return false;
             }

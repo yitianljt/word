@@ -35,6 +35,7 @@ public:
     virtual bool init();
     virtual void onEnter();
     CC_SYNTHESIZE(unsigned int , _levelNum, LevelNum);
+    CC_SYNTHESIZE(unsigned int , _wrongCount,WrongCount);
     CC_SYNTHESIZE(LevelLayerDelegate*, _delegate, Delegate);
 private:
     void createBlocks(int rows);

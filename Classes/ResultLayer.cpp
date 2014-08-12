@@ -41,8 +41,10 @@ bool ResultLayer::init()
     Menu* menu = Menu::create(label, nullptr);
     menu->setPosition(Point(COMWinSize().width/2,COMWinSize().height/2));
     this->addChild(menu);
-    
-    ShowYouAd::shared()->showSpots();
+    if (CCRANDOM_0_1()>0.8)
+    {
+        ShowYouAd::shared()->showYouWallSpot();
+    }
     //reach level
     return true;
 }
