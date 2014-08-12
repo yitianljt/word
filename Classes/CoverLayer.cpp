@@ -22,14 +22,18 @@ bool CoverLayer::init()
     LayerColor* layerColor = LayerColor::create(Color4B(30,170,200,255), COMWinSize().width, COMWinSize().height);
     addChild(layerColor);
     
-    MenuItemLabel* label = MenuItemLabel::create(LabelTTF::create("开始游戏", "黑体", 50),CC_CALLBACK_1(CoverLayer::onClick, this) );
+    LabelTTF* ttfTitle = LabelTTF::create("亮瞎系列", "黑体", 100);
+    ttfTitle->setPosition(Point(COMWinSize().width/2,COMWinSize().height*0.7));
+    addChild(ttfTitle);
+    
+    MenuItemLabel* label = MenuItemLabel::create(LabelTTF::create("开始游戏", "黑体", 60),CC_CALLBACK_1(CoverLayer::onClick, this) );
     label->setTag(kStartTag);
     Menu* menu = Menu::create(label, nullptr);
     menu->setPosition(Point(COMWinSize().width/2,COMWinSize().height/2));
     this->addChild(menu);
     
     //ShowYouAd::shared()->showYouWallSpot();
-    ShowYouAd::shared()->showSpots();
+    //ShowYouAd::shared()->showSpots();
     return true;
 }
 

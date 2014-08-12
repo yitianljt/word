@@ -19,7 +19,7 @@ using namespace std;
 LevelLayer::LevelLayer(unsigned int iLevel)
 {
     setLevelNum(iLevel);
-    _countDown = 5;
+    _countDown = 25;
     _vecBlocks = nullptr;
     _vecEasyQuestion = nullptr;
     _vecMedQuestion = nullptr;
@@ -72,7 +72,7 @@ bool LevelLayer::init()
             block = *it;
             if(block->getIsDiff() && block->getBoundingBox().containsPoint(t->getLocation()))
             {
-                CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("Sound/Correct.m4a");
+                CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("Sound/Correct.MP3");
                 nextLevel();
                 return true;
             }
@@ -88,6 +88,8 @@ bool LevelLayer::init()
     
     Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener, this);
     schedule(schedule_selector(LevelLayer::updateCount), 1.0f);
+    CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic("Sound/bgm.mp3",true);
+
     return true;
 }
 
@@ -168,6 +170,8 @@ void LevelLayer::nextLevel()
 
 void LevelLayer::gameOver()
 {
+    CocosDenshion::SimpleAudioEngine::getInstance()->stopBackgroundMusic();
+
     if (this->getDelegate())
     {
         this->getDelegate()->gameOver();

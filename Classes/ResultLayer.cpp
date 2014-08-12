@@ -10,6 +10,7 @@
 #include "PlayRound.h"
 #include "ComUtil.h"
 #include "cocos-ext.h"
+#include "ShowYouAd.h"
 USING_NS_CC;
 USING_NS_CC_EXT;
 
@@ -40,6 +41,8 @@ bool ResultLayer::init()
     Menu* menu = Menu::create(label, nullptr);
     menu->setPosition(Point(COMWinSize().width/2,COMWinSize().height/2));
     this->addChild(menu);
+    
+    ShowYouAd::shared()->showSpots();
     //reach level
     return true;
 }
