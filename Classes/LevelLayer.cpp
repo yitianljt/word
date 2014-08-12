@@ -56,6 +56,7 @@ bool LevelLayer::init()
     __String* strLevel = __String::createWithFormat("第%d层/99层",getLevelNum());
     _ttfLevel = LabelTTF::create(strLevel->getCString(), "黑体", 30);
     _ttfLevel->setPosition(Point(COMWinSize().width/2,COMWinSize().height*0.9));
+    //CCLOG("winsize=%f,winsize.h=%f",COMWinSize.width,COMWinSize.height);
     this->addChild(_ttfLevel);
     
     __String* strCount = __String::createWithFormat("%d秒",_countDown);
@@ -75,14 +76,14 @@ bool LevelLayer::init()
             if(block->getIsDiff() && block->getBoundingBox().containsPoint(t->getLocation()))
             {
                 CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("Sound/Correct.MP3");
-                _wrongCount = 0;
+                //_wrongCount = 0;
                 nextLevel();
                 return true;
             }
             else if(!block->getIsDiff() && block->getBoundingBox().containsPoint(t->getLocation()))
             {
                 _wrongCount++;
-                if (_wrongCount>=3) {
+                if (_wrongCount>=4) {
                     ShowYouAd::shared()->showYouWallSpot();
                     _wrongCount = 0;
                 }

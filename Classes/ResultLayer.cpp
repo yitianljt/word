@@ -13,6 +13,7 @@
 #include "ShowYouAd.h"
 USING_NS_CC;
 USING_NS_CC_EXT;
+using namespace std;
 
 
 ResultLayer::ResultLayer()
@@ -45,10 +46,21 @@ bool ResultLayer::init()
     {
         ShowYouAd::shared()->showYouWallSpot();
     }
-    //reach level
+    //Results.m4a
+    CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("Sound/Results.m4a");
+    //历史分数
+    int iHistory = UserDefault::getInstance()->getIntegerForKey("HistoryScore");
+    if (iHistory<PlayRound::shared()->getLevel()) {
+        iHistory = PlayRound::shared()->getLevel();
+        UserDefault::getInstance()->setIntegerForKey("HistoryScore", PlayRound::shared()->getLevel());
+        UserDefault::getInstance()->flush();
+    }
+    __String* strHistory = __String::createWithFormat("历史最高:%d层",iHistory);
+    LabelTTF* ttfHistory = LabelTTF::create(strHistory->getCString(), "黑体", 50);
+    ttfHistory->setPosition(Point(COMWinSize().width/2,COMWinSize().height*0.6));
+    addChild(ttfHistory);
     return true;
 }
-
 
 void ResultLayer::onClick(cocos2d::Ref* pSender)
 {

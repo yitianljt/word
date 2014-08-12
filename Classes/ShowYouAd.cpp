@@ -11,13 +11,16 @@
 
 SINGLETON_IMPL(ShowYouAd);
 
-#if CC_TARGET_PLATFORM == CC_PLATFORM_ANDRORD
+#if CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID
 void ShowYouAd::showYouWallSpot()
 {
 
 }
 
+void ShowYouAd::showSpots()
+{
 
+}
 #endif
 
 bool ShowYouAd::init()
