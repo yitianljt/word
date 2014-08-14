@@ -222,27 +222,35 @@ void LevelLayer::parseJson()
                 _vecMedQuestion->push_back(que);
             }
         }
-        //random_shuffle(_vecEasyQuestion->begin(), _vecEasyQuestion->end());
+        srand((unsigned)(time(NULL)));
+        random_shuffle(_vecEasyQuestion->begin(), _vecEasyQuestion->end());
         for (int i=0; i<_vecEasyQuestion->size(); i++) {
             CCLOG("new [%d]=%s,",i,_vecEasyQuestion->at(i).strNormal.c_str());
         }
-        for (int i=0; i<_vecEasyQuestion->size(); i++) {
+        for (int i=0; i<10; i++) {
             int iTime = (unsigned)(time(NULL)+i);
             srand(iTime);
             int iRand = rand()%_vecEasyQuestion->size();
+            CCLOG("1= iRand=%d",iRand);
+
             Question queTmp = _vecEasyQuestion->at(iRand);
             _vecEasyQuestion->at(iRand) = _vecEasyQuestion->at((iRand+1)%_vecEasyQuestion->size());
             _vecEasyQuestion->at((iRand+1)%_vecEasyQuestion->size()) = queTmp;
 
         }
-        //random_shuffle(_vecMedQuestion->begin(), _vecMedQuestion->end());
-        for (int i=0; i<_vecMedQuestion->size(); i++) {
+        srand((unsigned)(time(NULL)));
+        random_shuffle(_vecMedQuestion->begin(), _vecMedQuestion->end());
+        for (int i=0; i<10; i++) {
             int iTime = (unsigned)(time(NULL)+i);
             srand(iTime);
             int iRand = rand()%_vecMedQuestion->size();
+            CCLOG("2= iRand=%d",iRand);
             Question queTmp = _vecMedQuestion->at(iRand);
             _vecMedQuestion->at(iRand) = _vecMedQuestion->at((iRand+1)%_vecMedQuestion->size());
             _vecMedQuestion->at((iRand+1)%_vecMedQuestion->size()) = queTmp;
+        }
+        for (int i=0; i<_vecEasyQuestion->size(); i++) {
+            CCLOG("old [%d]=%s,",i,_vecEasyQuestion->at(i).strNormal.c_str());
         }
     }
     _vecQuestion->assign(_vecEasyQuestion->begin(), _vecEasyQuestion->begin()+3);
