@@ -87,3 +87,9 @@ void MainLayer::restartGame()
     }
     this->startGame();
 }
+#if CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID
+//void MainLayer::keyBackClicked()
+//{
+//    CCLOG("back......");
+//}
+#endif

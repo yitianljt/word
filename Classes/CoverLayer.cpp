@@ -32,7 +32,7 @@ bool CoverLayer::init()
     menu->setPosition(Point(COMWinSize().width/2,COMWinSize().height/2));
     this->addChild(menu);
     
-    //ShowYouAd::shared()->showYouWallSpot();
+   // ShowYouAd::shared()->showYouWallSpot();
     //ShowYouAd::shared()->showSpots();
     return true;
 }

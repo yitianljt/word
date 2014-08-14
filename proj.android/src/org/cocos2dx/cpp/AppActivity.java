@@ -26,7 +26,60 @@ THE SOFTWARE.
 ****************************************************************************/
 package org.cocos2dx.cpp;
 
+
 import org.cocos2dx.lib.Cocos2dxActivity;
 
+import android.app.Activity;
+import android.os.Bundle;
+import net.youmi.android.AdManager;
+import net.youmi.android.spot.SpotManager;
+
 public class AppActivity extends Cocos2dxActivity {
+    public static AppActivity appActive ;  
+
+	@Override
+    protected void onCreate(Bundle savedInstanceState) {
+        // TODO Auto-generated method stub
+        super.onCreate(savedInstanceState);
+        appActive = this;
+        // 初始化应用的发布 ID 和密钥，以及设置测试模式
+        AdManager.getInstance(this).init("48c1d5353545f8fa", "86d9d62121259df9", false);
+        SpotManager.getInstance(this).loadSpotAds();
+        SpotManager.getInstance(this).setSpotTimeout(5000); // 5秒
+        
+        SpotManager.getInstance(this).setAutoCloseSpot(true);// 设置自动关闭插屏开关
+        SpotManager.getInstance(this).setCloseTime(6000); // 设置关闭插屏时间
+
+    }
+	
+	@Override
+    protected void onDestroy() {
+            SpotManager.getInstance(this).unregisterSceenReceiver();
+            super.onDestroy();
+    }
+	public void showSpotAds()
+	{
+		SpotManager.getInstance(this).showSpotAds(this);
+	}
+	
+	static public void showTest()
+	{
+		appActive.showSpotAds();
+	}
+	
+	@Override
+	public void onBackPressed() {
+	    // 如果有需要，可以点击后退关闭插屏广告（可选）。
+	    if (!SpotManager.getInstance(this).disMiss(true)) {
+	        super.onBackPressed();
+	    }
+	}
+
+	@Override
+	protected void onStop() {
+	    //如果不调用此方法，则按home键的时候会出现图标无法显示的情况。
+	    SpotManager.getInstance(this).disMiss(false);
+	    super.onStop();
+	}
+	
 }
