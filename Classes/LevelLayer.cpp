@@ -20,7 +20,7 @@ using namespace std;
 LevelLayer::LevelLayer(unsigned int iLevel)
 {
     setLevelNum(iLevel);
-    _countDown = 25;
+    _countDown = 3;
     _wrongCount = 0;
     _vecBlocks = nullptr;
     _vecEasyQuestion = nullptr;

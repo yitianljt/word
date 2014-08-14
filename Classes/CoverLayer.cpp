@@ -26,9 +26,15 @@ bool CoverLayer::init()
     ttfTitle->setPosition(Point(COMWinSize().width/2,COMWinSize().height*0.7));
     addChild(ttfTitle);
     
-    MenuItemLabel* label = MenuItemLabel::create(LabelTTF::create("开始游戏", "黑体", 60),CC_CALLBACK_1(CoverLayer::onClick, this) );
-    label->setTag(kStartTag);
-    Menu* menu = Menu::create(label, nullptr);
+    Sprite* spNormal = Sprite::create("image/btn_start.png");
+    Sprite* spSelect = Sprite::create("image/btn_start.png");
+    spSelect->setColor(Color3B(200,200,200));
+    
+    MenuItemSprite* itemSp = MenuItemSprite::create(spNormal, spSelect, CC_CALLBACK_1(CoverLayer::onClick, this));
+    
+    //MenuItemLabel* label = MenuItemLabel::create(LabelTTF::create("开始游戏", "黑体", 60),CC_CALLBACK_1(CoverLayer::onClick, this) );
+    itemSp->setTag(kStartTag);
+    Menu* menu = Menu::create(itemSp, nullptr);
     menu->setPosition(Point(COMWinSize().width/2,COMWinSize().height/2));
     this->addChild(menu);
     
