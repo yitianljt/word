@@ -46,10 +46,8 @@ public class AppActivity extends Cocos2dxActivity {
         AdManager.getInstance(this).init("48c1d5353545f8fa", "86d9d62121259df9", false);
         SpotManager.getInstance(this).loadSpotAds();
         SpotManager.getInstance(this).setSpotTimeout(5000); // 5秒
-        
         SpotManager.getInstance(this).setAutoCloseSpot(true);// 设置自动关闭插屏开关
         SpotManager.getInstance(this).setCloseTime(6000); // 设置关闭插屏时间
-
     }
 	
 	@Override

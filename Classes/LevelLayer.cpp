@@ -90,14 +90,11 @@ bool LevelLayer::init()
                 return false;
             }
         }
-        
         return false;
     };  
-    
     Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener, this);
     schedule(schedule_selector(LevelLayer::updateCount), 1.0f);
     CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic("Sound/bgm.mp3",true);
-
     return true;
 }
 
