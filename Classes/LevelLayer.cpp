@@ -20,7 +20,7 @@ using namespace std;
 LevelLayer::LevelLayer(unsigned int iLevel)
 {
     setLevelNum(iLevel);
-    _countDown = 3;
+    _countDown = 30;
     _wrongCount = 0;
     _vecBlocks = nullptr;
     _vecEasyQuestion = nullptr;
@@ -54,13 +54,13 @@ bool LevelLayer::init()
     }
     
     __String* strLevel = __String::createWithFormat("第%d层/99层",getLevelNum());
-    _ttfLevel = LabelTTF::create(strLevel->getCString(), "黑体", 30);
+    _ttfLevel = LabelTTF::create(strLevel->getCString(), "黑体", FONTSIZE(30));
     _ttfLevel->setPosition(Point(COMWinSize().width/2,COMWinSize().height*0.9));
     //CCLOG("winsize=%f,winsize.h=%f",COMWinSize.width,COMWinSize.height);
     this->addChild(_ttfLevel);
     
     __String* strCount = __String::createWithFormat("%d秒",_countDown);
-    _ttfCountDown = LabelTTF::create(strCount->getCString(), "黑体", 40);
+    _ttfCountDown = LabelTTF::create(strCount->getCString(), "黑体", FONTSIZE(40));
     _ttfCountDown->setPosition(_ttfLevel->getPosition()+Point(0,-_ttfLevel->getContentSize().height/2-40));
     this->addChild(_ttfCountDown);
     

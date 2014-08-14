@@ -22,7 +22,7 @@ bool CoverLayer::init()
     LayerColor* layerColor = LayerColor::create(Color4B(30,170,200,255), COMWinSize().width, COMWinSize().height);
     addChild(layerColor);
     
-    LabelTTF* ttfTitle = LabelTTF::create("亮瞎系列", "黑体", 100);
+    LabelTTF* ttfTitle = LabelTTF::create("亮瞎系列", "黑体", FONTSIZE(100));
     ttfTitle->setPosition(Point(COMWinSize().width/2,COMWinSize().height*0.7));
     addChild(ttfTitle);
     

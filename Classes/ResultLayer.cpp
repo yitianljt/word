@@ -15,7 +15,6 @@ USING_NS_CC;
 USING_NS_CC_EXT;
 using namespace std;
 
-#define FONTSIZE(__SIZE__)  (__SIZE__/960.0)*COMWinSize().height
 
 ResultLayer::ResultLayer()
 {
