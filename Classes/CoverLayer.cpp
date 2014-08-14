@@ -28,6 +28,8 @@ bool CoverLayer::init()
     
     Sprite* spNormal = Sprite::create("image/btn_start.png");
     Sprite* spSelect = Sprite::create("image/btn_start.png");
+    spNormal->setScale(960/COMWinSize().height);
+    spSelect->setScale(960/COMWinSize().height);
     spSelect->setColor(Color3B(200,200,200));
     
     MenuItemSprite* itemSp = MenuItemSprite::create(spNormal, spSelect, CC_CALLBACK_1(CoverLayer::onClick, this));
