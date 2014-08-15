@@ -19,6 +19,8 @@ bool CoverLayer::init()
     if (!Layer::init()) {
         return false;
     }
+    iKeyCount = 0;
+    oldTime = 0;
     LayerColor* layerColor = LayerColor::create(Color4B(30,170,200,255), COMWinSize().width, COMWinSize().height);
     addChild(layerColor);
     
@@ -42,6 +44,7 @@ bool CoverLayer::init()
     
    // ShowYouAd::shared()->showYouWallSpot();
     //ShowYouAd::shared()->showSpots();
+    this->setKeypadEnabled(true);
     return true;
 }
 
@@ -69,4 +72,20 @@ void CoverLayer::onClick(Ref* pSender)
         default:
             break;
     }
+}
+
+void CoverLayer::onKeyPressed()
+{
+    CCLOG("CoverLayer::keyBackClicked");
+    iKeyCount++;
+    struct timeval nowTimeval;
+    gettimeofday(&nowTimeval, NULL);
+    struct tm * tm;
+    time_t time_sec ;
+    time_sec = nowTimeval.tv_sec;
+    if (iKeyCount>=2 && time_sec-oldTime<1.2) {
+        iKeyCount =0;
+        Director::getInstance()->end();
+    }
+    oldTime = time_sec;
 }

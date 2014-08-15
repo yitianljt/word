@@ -11,6 +11,7 @@
 #include "ComUtil.h"
 #include "cocos-ext.h"
 #include "ShowYouAd.h"
+#include "LevelLayer.h"
 USING_NS_CC;
 USING_NS_CC_EXT;
 using namespace std;

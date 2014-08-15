@@ -62,6 +62,7 @@
 		50EF629917ECD46A001EB2F8 /* Icon-100.png in Resources */ = {isa = PBXBuildFile; fileRef = 50EF629517ECD46A001EB2F8 /* Icon-100.png */; };
 		50EF62A217ECD613001EB2F8 /* Icon-29.png in Resources */ = {isa = PBXBuildFile; fileRef = 50EF62A017ECD613001EB2F8 /* Icon-29.png */; };
 		50EF62A317ECD613001EB2F8 /* Icon-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 50EF62A117ECD613001EB2F8 /* Icon-50.png */; };
+		A942FA95199DF03700F90658 /* ExitLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A942FA93199DF03700F90658 /* ExitLayer.cpp */; };
 		A9D33BA9199223180036D03E /* CoverLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9D33BA7199223180036D03E /* CoverLayer.cpp */; };
 		A9D33BB9199235D40036D03E /* FileTool.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9D33BB7199235D40036D03E /* FileTool.cpp */; };
 		A9D33BBF19924F9E0036D03E /* ComUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9D33BBD19924F9E0036D03E /* ComUtil.cpp */; };
@@ -283,6 +284,8 @@
 		50EF629517ECD46A001EB2F8 /* Icon-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-100.png"; sourceTree = "<group>"; };
 		50EF62A017ECD613001EB2F8 /* Icon-29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-29.png"; sourceTree = "<group>"; };
 		50EF62A117ECD613001EB2F8 /* Icon-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-50.png"; sourceTree = "<group>"; };
+		A942FA93199DF03700F90658 /* ExitLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ExitLayer.cpp; path = ../Classes/ExitLayer.cpp; sourceTree = "<group>"; };
+		A942FA94199DF03700F90658 /* ExitLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExitLayer.h; path = ../Classes/ExitLayer.h; sourceTree = "<group>"; };
 		A9D33BA7199223180036D03E /* CoverLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CoverLayer.cpp; path = ../Classes/CoverLayer.cpp; sourceTree = "<group>"; };
 		A9D33BA8199223180036D03E /* CoverLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoverLayer.h; path = ../Classes/CoverLayer.h; sourceTree = "<group>"; };
 		A9D33BB7199235D40036D03E /* FileTool.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FileTool.cpp; sourceTree = "<group>"; };
@@ -429,6 +432,8 @@
 				A9D33BC4199259DF0036D03E /* MainLayer.h */,
 				A9D33BD3199330500036D03E /* WordBlock.cpp */,
 				A9D33BD4199330500036D03E /* WordBlock.h */,
+				A942FA93199DF03700F90658 /* ExitLayer.cpp */,
+				A942FA94199DF03700F90658 /* ExitLayer.h */,
 			);
 			name = Classes;
 			path = ../classes;
@@ -847,6 +852,7 @@
 				A9D33F2C1994C4200036D03E /* ShowYouAd.cpp in Sources */,
 				A9D33F2E1994C45D0036D03E /* ShowYouAd.mm in Sources */,
 				A9D33BB9199235D40036D03E /* FileTool.cpp in Sources */,
+				A942FA95199DF03700F90658 /* ExitLayer.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				1AFAF8B716D35DE700DB1158 /* AppDelegate.cpp in Sources */,
 				A9D33EF619948AAD0036D03E /* PlayRound.cpp in Sources */,

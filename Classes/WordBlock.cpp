@@ -8,6 +8,7 @@
 
 #include "WordBlock.h"
 #include "cocos-ext.h"
+#include "PlayRound.h"
 USING_NS_CC;
 USING_NS_CC_EXT;
 
@@ -55,7 +56,15 @@ bool WordBlock::init(Size size,std::string strLabel,bool isDiffWord)
     this->addChild(rightBorder);
     this->addChild(upBorder);
     this->addChild(downBorder);
-    auto label = LabelBMFont::create(strLabel, "fonts/word_64.fnt");
+    __String* strFont;
+    if (PlayRound::shared()->getLevel()<=4) {
+        strFont = __String::create("fonts/word_128.fnt");
+    }
+    else
+    {
+        strFont = __String::create("fonts/word_64.fnt");
+    }
+    auto label = LabelBMFont::create(strLabel, strFont->getCString());
     label->setColor(Color3B(0,0,0));
     label->setString(strLabel);
     addChild(label);

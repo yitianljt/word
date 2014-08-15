@@ -39,6 +39,25 @@ void ShowYouAd::showSpots()
 {
 
 }
+
+void ShowYouAd::showDiyAds()
+{
+    JniMethodInfo minfo;
+    bool isHave = JniHelper::getStaticMethodInfo(minfo,
+                                                 "org/cocos2dx/cpp/AppActivity",
+                                                 "staticShowDiy",
+                                                 "()V"
+                                                 );
+    jobject activityObj;
+    if (isHave)
+    {  CCLOG("ShowYouAd::showYouWallSpot");
+        activityObj = minfo.env->CallStaticObjectMethod(minfo.classID, minfo.methodID);
+    }
+    else
+    {
+        CCLOG("no  ShowYouAd::showYouWallSpot");
+    }
+}
 #endif
 
 bool ShowYouAd::init()

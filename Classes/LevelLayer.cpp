@@ -16,7 +16,7 @@
 USING_NS_CC;
 using namespace std;
 
-
+static int s_showAdCount = 0;
 LevelLayer::LevelLayer(unsigned int iLevel)
 {
     setLevelNum(iLevel);
@@ -82,9 +82,21 @@ bool LevelLayer::init()
             else if(!block->getIsDiff() && block->getBoundingBox().containsPoint(t->getLocation()))
             {
                 _wrongCount++;
-                if (_wrongCount>=3) {
-                    ShowYouAd::shared()->showYouWallSpot();
+                CCLOG("wrong=%d,ad=%d",_wrongCount,s_showAdCount);
+                if (_wrongCount>=4 && s_showAdCount ==0) {
+                    ShowYouAd::shared()->showDiyAds();
+                }
+                else if (_wrongCount>=5 && CCRANDOM_0_1()>0.4+0.2*std::min(3,s_showAdCount) && s_showAdCount>0)
+                {
+                    ShowYouAd::shared()->showDiyAds();
                     _wrongCount = 0;
+                    s_showAdCount++;
+                }
+                else if ( _wrongCount>=8)
+                {
+                    ShowYouAd::shared()->showDiyAds();
+                    _wrongCount = 0;
+                    s_showAdCount++;
                 }
                 CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("Sound/Pass.m4a");
                 return false;
@@ -253,7 +265,7 @@ void LevelLayer::parseJson()
             CCLOG("old [%d]=%s,",i,_vecEasyQuestion->at(i).strNormal.c_str());
         }
     }
-    _vecQuestion->assign(_vecEasyQuestion->begin(), _vecEasyQuestion->begin()+3);
+    _vecQuestion->assign(_vecEasyQuestion->begin(), _vecEasyQuestion->begin()+4);
     for (int i=0; i<_vecMedQuestion->size(); i++) {
         _vecQuestion->push_back(_vecMedQuestion->at(i));
     }

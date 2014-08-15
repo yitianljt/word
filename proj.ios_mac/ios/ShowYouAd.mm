@@ -32,6 +32,6 @@ void ShowYouAd::showSpots()
 {
 //    [YouMiSpots requestSpotData];
 //    [YouMiSpots showSpots:nil];
-
-
 }
+
+void ShowYouAd::showDiyAds(){};

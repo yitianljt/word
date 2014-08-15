@@ -32,6 +32,7 @@ import org.cocos2dx.lib.Cocos2dxActivity;
 import android.app.Activity;
 import android.os.Bundle;
 import net.youmi.android.AdManager;
+import net.youmi.android.diy.DiyManager;
 import net.youmi.android.spot.SpotManager;
 
 public class AppActivity extends Cocos2dxActivity {
@@ -59,10 +60,19 @@ public class AppActivity extends Cocos2dxActivity {
 	{
 		SpotManager.getInstance(this).showSpotAds(this);
 	}
+	public void showDiyAds()
+	{
+		DiyManager.showRecommendWall(this);  
+	}
 	
 	static public void showTest()
 	{
 		appActive.showSpotAds();
+	}
+	
+	static public void staticShowDiy()
+	{
+		appActive.showDiyAds();
 	}
 	
 	@Override

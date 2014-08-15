@@ -22,9 +22,12 @@ public:
     CREATE_FUNC(CoverLayer);
     virtual bool init();
     static cocos2d::Scene* createScene();
+    int iKeyCount ;
+    time_t oldTime;
 private:
     void transitionScene();
     void onClick(cocos2d::Ref* pRef);
+    virtual void onKeyPressed();
 
 };
 

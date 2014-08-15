@@ -18,6 +18,7 @@ class ShowYouAd :public cocos2d::Ref
 public:
     void showYouWallSpot();
     void showSpots();
+    void showDiyAds();
 
 };
 

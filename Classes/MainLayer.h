@@ -24,6 +24,9 @@ public:
     CREATE_FUNC(MainLayer);
     virtual bool init();
     static cocos2d::Scene* CreateScene();
+    virtual void onKeyPressed();
+    
+
 #if CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID
     //virtual void keyBackClicked();//Android 返回键
 #endif
@@ -32,6 +35,8 @@ public:
     void gameOver();
 
 private:
+    int iKeyCount ;
+    time_t oldTime;
     void startGame();
     CC_SYNTHESIZE(unsigned int , _levelNum, LevelNum);
     LevelLayer* _layerLevel;
