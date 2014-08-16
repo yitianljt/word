@@ -50,7 +50,7 @@ bool ResultLayer::init()
     Menu* menu = Menu::create(itemSp, nullptr);
     menu->setPosition(Point(COMWinSize().width/2,COMWinSize().height/2));
     this->addChild(menu);
-    if (CCRANDOM_0_1()>0.8)
+    if (CCRANDOM_0_1()>0.85)
     {
         ShowYouAd::shared()->showYouWallSpot();
     }

@@ -29,13 +29,20 @@ bool MainLayer::init()
     if (!Layer::init()) {
         return false;
     }
-    iKeyCount = 0;
-    oldTime = 0;
     LayerColor* layerColor = LayerColor::create(Color4B(30,170,200,255), COMWinSize().width, COMWinSize().height);
     addChild(layerColor);
     
     startGame();
     this->setKeyboardEnabled(true);
+    
+    //对手机返回键的监听
+    auto listener = EventListenerKeyboard::create();
+    //和回调函数绑定
+    listener->onKeyReleased = CC_CALLBACK_2(MainLayer::onKeyReleased,this);
+    //添加到事件分发器中
+    Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener,this);
+    
+    
     return true;
 }
 
@@ -94,15 +101,10 @@ void MainLayer::restartGame()
 void MainLayer::onKeyPressed()
 {
     CCLOG("CoverLayer::keyBackClicked");
-    iKeyCount++;
-    struct timeval nowTimeval;
-    gettimeofday(&nowTimeval, NULL);
-    struct tm * tm;
-    time_t time_sec ;
-    time_sec = nowTimeval.tv_sec;
-    if (iKeyCount>=2 && time_sec-oldTime<1.2) {
-        iKeyCount =0;
-        Director::getInstance()->end();
-    }
-    oldTime = time_sec;
+}
+
+void MainLayer::onKeyReleased(EventKeyboard::KeyCode keyCode,Event * pEvent)
+{
+    CCLOG("MainLayer::onKeyReleased");
+    Director::getInstance()->end();
 }

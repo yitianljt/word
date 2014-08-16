@@ -33,10 +33,9 @@ public:
     void levelNumChange(unsigned iLevel);
     void restartGame();
     void gameOver();
+    void onKeyReleased(cocos2d::EventKeyboard::KeyCode keyCode,cocos2d::Event * pEvent);
 
 private:
-    int iKeyCount ;
-    time_t oldTime;
     void startGame();
     CC_SYNTHESIZE(unsigned int , _levelNum, LevelNum);
     LevelLayer* _layerLevel;

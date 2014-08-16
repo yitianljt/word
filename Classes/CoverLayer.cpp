@@ -19,8 +19,6 @@ bool CoverLayer::init()
     if (!Layer::init()) {
         return false;
     }
-    iKeyCount = 0;
-    oldTime = 0;
     LayerColor* layerColor = LayerColor::create(Color4B(30,170,200,255), COMWinSize().width, COMWinSize().height);
     addChild(layerColor);
     
@@ -45,6 +43,14 @@ bool CoverLayer::init()
    // ShowYouAd::shared()->showYouWallSpot();
     //ShowYouAd::shared()->showSpots();
     this->setKeypadEnabled(true);
+    
+    //对手机返回键的监听
+    auto listener = EventListenerKeyboard::create();
+    //和回调函数绑定
+    listener->onKeyReleased = CC_CALLBACK_2(CoverLayer::onKeyReleased,this);
+    //添加到事件分发器中
+    Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener,this);
+    
     return true;
 }
 
@@ -77,15 +83,12 @@ void CoverLayer::onClick(Ref* pSender)
 void CoverLayer::onKeyPressed()
 {
     CCLOG("CoverLayer::keyBackClicked");
-    iKeyCount++;
-    struct timeval nowTimeval;
-    gettimeofday(&nowTimeval, NULL);
-    struct tm * tm;
-    time_t time_sec ;
-    time_sec = nowTimeval.tv_sec;
-    if (iKeyCount>=2 && time_sec-oldTime<1.2) {
-        iKeyCount =0;
-        Director::getInstance()->end();
-    }
-    oldTime = time_sec;
+
+}
+
+void CoverLayer::onKeyReleased(EventKeyboard::KeyCode keyCode,Event * pEvent)
+{
+    CCLOG("CoverLayer::onKeyReleased");
+
+    Director::getInstance()->end();
 }

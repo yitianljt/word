@@ -29,9 +29,16 @@ package org.cocos2dx.cpp;
 
 import org.cocos2dx.lib.Cocos2dxActivity;
 
+import android.R;
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.Gravity;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import net.youmi.android.AdManager;
+import net.youmi.android.banner.AdSize;
+import net.youmi.android.banner.AdView;
 import net.youmi.android.diy.DiyManager;
 import net.youmi.android.spot.SpotManager;
 
@@ -49,6 +56,24 @@ public class AppActivity extends Cocos2dxActivity {
         SpotManager.getInstance(this).setSpotTimeout(5000); // 5秒
         SpotManager.getInstance(this).setAutoCloseSpot(true);// 设置自动关闭插屏开关
         SpotManager.getInstance(this).setCloseTime(6000); // 设置关闭插屏时间
+        
+        
+     // 广告条接口调用（适用于游戏）
+
+     // 实例化LayoutParams(重要)
+     FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(
+     FrameLayout.LayoutParams.FILL_PARENT,
+     FrameLayout.LayoutParams.WRAP_CONTENT);
+     // 设置广告条的悬浮位置
+     layoutParams.gravity = Gravity.BOTTOM | Gravity.RIGHT; // 这里示例为右下角
+     // 实例化广告条
+     AdView adView = new AdView(this,
+     AdSize.FIT_SCREEN);
+     // 调用Activity的addContentView函数
+     this.addContentView(adView, layoutParams);
+
+    
+       
     }
 	
 	@Override
@@ -59,6 +84,8 @@ public class AppActivity extends Cocos2dxActivity {
 	public void showSpotAds()
 	{
 		SpotManager.getInstance(this).showSpotAds(this);
+	    SpotManager.getInstance(this).disMiss(true);  
+
 	}
 	public void showDiyAds()
 	{

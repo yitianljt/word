@@ -22,6 +22,8 @@ public:
     CREATE_FUNC(CoverLayer);
     virtual bool init();
     static cocos2d::Scene* createScene();
+    void onKeyReleased(cocos2d::EventKeyboard::KeyCode keyCode,cocos2d::Event * pEvent);
+
     int iKeyCount ;
     time_t oldTime;
 private:
