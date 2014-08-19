@@ -50,12 +50,12 @@ void ShowYouAd::showDiyAds()
                                                  );
     jobject activityObj;
     if (isHave)
-    {  CCLOG("ShowYouAd::showYouWallSpot");
+    {  CCLOG("ShowYouAd::showDiyAds");
         activityObj = minfo.env->CallStaticObjectMethod(minfo.classID, minfo.methodID);
     }
     else
     {
-        CCLOG("no  ShowYouAd::showYouWallSpot");
+        CCLOG("no  ShowYouAd::showDiyAds");
     }
 }
 #endif

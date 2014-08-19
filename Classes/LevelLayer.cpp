@@ -83,19 +83,20 @@ bool LevelLayer::init()
             {
                 _wrongCount++;
                 CCLOG("wrong=%d,ad=%d",_wrongCount,s_showAdCount);
-                if (_wrongCount>=4 && s_showAdCount ==0) {
-                    //ShowYouAd::shared()->showDiyAds();
-                }
-                else if (_wrongCount>=5 && CCRANDOM_0_1()>0.4+0.2*std::min(3,s_showAdCount) && s_showAdCount>0)
-                {
+//                if (_wrongCount>=4 && s_showAdCount ==0) {
+//                    //ShowYouAd::shared()->showDiyAds();
+//                }
+//                else if (_wrongCount>=5 && CCRANDOM_0_1()>0.4+0.2*std::min(3,s_showAdCount) && s_showAdCount>0)
+//                {
 //                    ShowYouAd::shared()->showDiyAds();
 //                    _wrongCount = 0;
 //                    s_showAdCount++;
-                }
+//                }
                 
-                if ( _wrongCount>=6)
+                if ( _wrongCount>=6+std::min(s_showAdCount,5))
                 {
-                    ShowYouAd::shared()->showYouWallSpot();
+                    //ShowYouAd::shared()->showYouWallSpot();
+                    ShowYouAd::shared()->showDiyAds();
                     _wrongCount = 0;
                     s_showAdCount++;
                 }
