@@ -6,5 +6,6 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="gen"/>
 	<classpathentry kind="lib" path="/Users/jintao/dev_proj/cocos2d-x-3.2/NewProject/CrazyWord/proj.android/libs/YoumiSdk_v4.09_2014-06-16.jar"/>
+	<classpathentry kind="lib" path="/Users/jintao/dev_proj/cocos2d-x-3.2/NewProject/CrazyWord/proj.android/libs/umeng-analytics-v5.2.4.jar"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>

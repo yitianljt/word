@@ -933,10 +933,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				ARCHS = (
-					armv7,
-					armv7s,
-				);
+				ARCHS = "$(ARCHS_STANDARD)";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COMPRESS_PNG_FILES = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -959,14 +956,14 @@
 					"$(SRCROOT)/../libs/YouMi/include",
 				);
 				INFOPLIST_FILE = ios/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1.1;
 				LIBRARY_SEARCH_PATHS = "/Users/jintao/dev_proj/cocos2d-x-3.2/NewProject/CrazyWord/libs/YouMi";
 				ONLY_ACTIVE_ARCH = NO;
-				PROVISIONING_PROFILE = "4BBAAD62-CB12-494A-A3BD-D61BC5330167";
+				PROVISIONING_PROFILE = "3b836adc-b63e-46e3-9549-b27136e50cfe";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
-				VALID_ARCHS = "armv7 armv7s";
+				VALID_ARCHS = "armv7 armv7s armv64";
 			};
 			name = Debug;
 		};
@@ -974,10 +971,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				ARCHS = (
-					armv7,
-					armv7s,
-				);
+				ARCHS = "$(ARCHS_STANDARD)";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COMPRESS_PNG_FILES = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -998,14 +992,14 @@
 					"$(SRCROOT)/../libs/YouMi/include",
 				);
 				INFOPLIST_FILE = ios/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1.1;
 				LIBRARY_SEARCH_PATHS = "/Users/jintao/dev_proj/cocos2d-x-3.2/NewProject/CrazyWord/libs/YouMi";
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "4BBAAD62-CB12-494A-A3BD-D61BC5330167";
+				PROVISIONING_PROFILE = "3b836adc-b63e-46e3-9549-b27136e50cfe";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
-				VALID_ARCHS = "armv7 armv7s";
+				VALID_ARCHS = "armv7 armv7s armv64";
 			};
 			name = Release;
 		};

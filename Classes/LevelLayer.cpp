@@ -95,8 +95,8 @@ bool LevelLayer::init()
                 
                 if ( _wrongCount>=6+std::min(s_showAdCount,5))
                 {
-                    //ShowYouAd::shared()->showYouWallSpot();
-                    ShowYouAd::shared()->showDiyAds();
+                    ShowYouAd::shared()->showYouWallSpot();
+                     //ShowYouAd::shared()->showDiyAds();
                     _wrongCount = 0;
                     s_showAdCount++;
                 }
